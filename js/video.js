@@ -16,7 +16,7 @@ class Receptor {
     }
 
 }
-//_____________________________________________________________________________________________________________
+//___________________________________________________________________________________________
 // Constructor module
 
 class Reproductor { //abstract class
@@ -29,11 +29,15 @@ class Reproductor { //abstract class
 
     }
 }
-//_________________________________________________________________________________________________________
+//_____________________________________________________________________________________________
 //instantiator module
 
-class Facotory_rep {
-
+class Facotory_rep { // this class build specific video controls
+    constructor(tipo, videos_src, container) {
+        this.tipo = tipo,
+            this.videos_src = videos_src,
+            this.container = container
+    }
 }
 const data_video = document.getElementsByTagName('data-video');
 
