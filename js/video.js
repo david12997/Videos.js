@@ -108,7 +108,7 @@ class Facotory_rep { // this class build specific video controls
         } // end switch
     }
 }
-//personalization module
+//______________personalization module
 class Cambiar_interfaz {
     //create methods
 }
