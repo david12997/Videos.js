@@ -37,7 +37,7 @@ class Reproductor { //abstract class
     }
 
     Play_pause(video) {
-        console.log(video)
+        //console.log(video)
         if (video.paused) {
             video.play();
         } else if (video.played) {
@@ -48,7 +48,7 @@ class Reproductor { //abstract class
     }
     Change_graphics(personal_colors) {
         if (personal_colors[0] !== 'defined') {
-            console.log('cambiando colores')
+            console.log('cambiando colores', personal_colors)
                 // instance method's Cambiar_interfaz
         } else {
             console.log('nothing')

@@ -1,0 +1,64 @@
+/*estilos globales*/
+body {
+  margin: 0;
+}
+
+/*estilos especificos phone*/
+.reproductor {
+  width: 100%;
+  background: blue;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.reproductor video {
+  width: 100%;
+}
+.reproductor .container-controles {
+  width: 100%;
+  height: 35px;
+  background: red;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+.reproductor .container-controles .icons-start {
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  height: 70%;
+  background: black;
+}
+.reproductor .container-controles .icons-start .play {
+  background: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.reproductor .container-controles .icons-start .time-phone {
+  position: absolute;
+  background: blue;
+  margin-top: -10%;
+}
+.reproductor .container-controles .icons-between {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 60%;
+  height: 70%;
+  background: black;
+}
+.reproductor .container-controles .icons-end {
+  margin-right: 5px;
+  width: 20%;
+  height: 70%;
+  background: black;
+}
+
+/*# sourceMappingURL=videos.css.map */
