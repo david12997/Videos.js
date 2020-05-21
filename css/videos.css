@@ -3,9 +3,17 @@ body {
   margin: 0;
 }
 
+.none {
+  display: none;
+}
+
+:root {
+  --tamano:100%;
+}
+
 /*estilos especificos phone*/
 .reproductor {
-  width: 100%;
+  width: var(--tamano);
   background: blue;
   position: relative;
   display: flex;
@@ -16,22 +24,23 @@ body {
 }
 .reproductor .container-controles {
   width: 100%;
-  height: 35px;
-  background: red;
+  height: 30px;
+  background: #000000B3;
   position: absolute;
   display: flex;
   justify-content: space-around;
   align-content: center;
   align-items: center;
+  padding: 2px;
 }
 .reproductor .container-controles .icons-start {
   margin-left: 5px;
+  margin-right: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 20%;
+  width: 10%;
   height: 70%;
-  background: black;
 }
 .reproductor .container-controles .icons-start .play {
   background: white;
@@ -39,26 +48,53 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
   height: 100%;
+  border-radius: 5px;
+  padding: 3px;
+  padding-left: 4px;
+  z-index: 9;
 }
 .reproductor .container-controles .icons-start .time-phone {
   position: absolute;
-  background: blue;
+  background: #000000B3;
   margin-top: -10%;
+  border-radius: 3px;
+  color: white;
+  font-size: 18px;
+  padding: 3px;
 }
 .reproductor .container-controles .icons-between {
   margin-left: 10px;
   margin-right: 10px;
-  width: 60%;
+  width: 70%;
   height: 70%;
+}
+.reproductor .container-controles .icons-between .timeline-vacio {
+  background: white;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  padding: 1px;
+}
+.reproductor .container-controles .icons-between .timeline-vacio .timeline-lleno {
   background: black;
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
 }
 .reproductor .container-controles .icons-end {
+  justify-content: space-around;
+  color: white;
+  display: flex;
   margin-right: 5px;
-  width: 20%;
+  align-items: center;
+  font-size: 19px;
+  width: 25%;
   height: 70%;
-  background: black;
+}
+.reproductor .container-controles .icons-end div {
+  margin-left: 5px;
 }
 
 /*# sourceMappingURL=videos.css.map */

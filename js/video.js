@@ -27,7 +27,7 @@ class Reproductor { //abstract class
 
     Control_Grafics() { // this method contain all  controllers or html labels, return a array
         const etiqueta_video = document.getElementsByTagName('video'),
-            btn_play = document.getElementsByTagName('button'),
+            btn_play = document.getElementsByClassName('play'),
 
             Controles = {
                 'etiqueta_video': etiqueta_video,
@@ -70,7 +70,26 @@ class Videos extends Reproductor {
         console.log(videos, container)
 
         let conten = document.getElementsByClassName(container);
-        conten[0].insertAdjacentHTML('beforeend', `<video src="${videos}" style="width:500px"></video><button>play</button>`)
+        conten[0].insertAdjacentHTML('beforeend', `
+        <div class="reproductor">
+        <div class="container-controles">
+            <div class="icons-start">
+                <div class="play"><i class="fas fa-play"></i></div>
+                <div class="time-phone">00:00</div>
+            </div>
+            <div class="icons-between">
+                <div class="timeline-vacio">
+                    <div class="timeline-lleno"></div>
+                </div>
+            </div>
+            <div class="icons-end">
+                <div class="volumen"><i class="fas fa-volume-up"></i></div>
+                <div class="herramientas"><i class="fas fa-cog"></i></div>
+                <div class="expand"><i class="fas fa-expand"></i></div>
+            </div>
+        </div>
+        <video src="${videos}"></video>
+    </div><br>`)
     }
 }
 class Listas extends Reproductor {
