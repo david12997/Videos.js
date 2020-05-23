@@ -63,6 +63,7 @@ body {
   color: white;
   font-size: 18px;
   padding: 3px;
+  margin-left: -5px;
 }
 .reproductor .container-controles .icons-between {
   margin-left: 10px;
