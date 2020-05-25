@@ -33,6 +33,9 @@ class Reproductor { //abstract class
             icons_end = document.getElementsByClassName('icons-end'),
             icons_between = document.getElementsByClassName('icons-between'),
             icons_start = document.getElementsByClassName('icons-start'),
+            circulo = document.getElementsByClassName('circulo', ),
+            speed = document.getElementsByClassName('speed'),
+            btn_speed = document.getElementsByClassName('btn-speed'),
 
             Controles = {
                 'etiqueta_video': etiqueta_video,
@@ -41,7 +44,10 @@ class Reproductor { //abstract class
                 'container_controles': container_controles,
                 'icons_end': icons_end,
                 'icons_between': icons_between,
-                'icons_start': icons_start
+                'icons_start': icons_start,
+                'circulo': circulo,
+                'speed': speed,
+                'btn_speed': btn_speed
             };
         return Controles;
     }
@@ -56,51 +62,134 @@ class Reproductor { //abstract class
     }
 
     Size(los_videos, controles) {
-        console.log(los_videos[0].clientWidth)
+        // console.log(los_videos[0].clientWidth);//tamaño del video
+        //console.log(navigator.productSub);//which navigator
+
         for (let i = 0; i < los_videos.length; i++) {
-            if (los_videos[i].clientWidth < 380) {
-                controles.time_phone[i].style.marginTop = '-10%';
-                controles.icons_end[i].style.fontSize = '19px';
-            }
 
-            if (los_videos[i].clientWidth >= 380) {
-                controles.time_phone[i].style.marginTop = '-8%';
-                controles.time_phone[i].style.fontSize = '18px';
-                controles.time_phone[i].style.marginLeft = '-5px';
-                controles.btn_play[i].style.width = '100%';
-            }
-            if (los_videos[i].clientWidth >= 530) {
-                controles.time_phone[i].style.marginTop = '-6%';
-                controles.time_phone[i].style.fontSize = '20px';
-                controles.container_controles[i].style.height = '30px';
-                controles.time_phone[i].style.marginLeft = '-3px';
-                controles.btn_play[i].style.fontSize = '20px';
-                controles.btn_play[i].style.width = '70%';
-                controles.icons_end[i].style.fontSize = '20px';
-                controles.icons_end[i].style.width = '25%';
+            if (navigator.productSub == '20030107') {
 
-            }
-            if (los_videos[i].clientWidth >= 705) {
-                controles.time_phone[i].style.marginTop = '-5%';
-                controles.time_phone[i].style.fontSize = '22px';
-                controles.container_controles[i].style.height = '35px';
-                controles.btn_play[i].style.fontSize = '24px';
-                controles.btn_play[i].style.width = '65%';
-                controles.icons_end[i].style.fontSize = '24px';
-                controles.icons_end[i].style.width = '20%';
-                controles.icons_start[i].style.width = '10%';
-            }
-            if (los_videos[i].clientWidth >= 1000) {
-                controles.time_phone[i].style.marginTop = '-3.7%';
-                controles.time_phone[i].style.fontSize = '24px';
-                controles.btn_play[i].style.fontSize = '26px';
-                controles.icons_end[i].style.fontSize = '26px';
-                controles.icons_between[i].style.width = '78%';
-                controles.icons_end[i].style.width = '15%';
-                controles.icons_start[i].style.width = '7%';
-            }
+                if (los_videos[i].clientWidth < 380) {
+                    controles.time_phone[i].style.marginTop = '-10%';
+                    controles.icons_end[i].style.fontSize = '19px';
+                    controles.circulo[i].style.fontSize = '21px';
+                    controles.speed[i].style.height = '80px';
+                    controles.speed[i].style.width = '70px';
+                    controles.speed[i].style.marginTop = '-110px';
+                }
 
-        }
+                if (los_videos[i].clientWidth >= 380) {
+                    controles.time_phone[i].style.marginTop = '-8%';
+                    controles.time_phone[i].style.fontSize = '18px';
+                    controles.time_phone[i].style.marginLeft = '-5px';
+                    controles.btn_play[i].style.width = '100%';
+                    controles.circulo[i].style.fontSize = '22px';
+                    controles.speed[i].style.height = '80px';
+                    controles.speed[i].style.width = '70px';
+                    controles.speed[i].style.marginTop = '-110px';
+                }
+                if (los_videos[i].clientWidth >= 530) {
+                    controles.time_phone[i].style.marginTop = '-6%';
+                    controles.time_phone[i].style.fontSize = '20px';
+                    controles.container_controles[i].style.height = '30px';
+                    controles.time_phone[i].style.marginLeft = '-3px';
+                    controles.btn_play[i].style.fontSize = '20px';
+                    controles.btn_play[i].style.width = '70%';
+                    controles.icons_end[i].style.fontSize = '20px';
+                    controles.icons_end[i].style.width = '25%';
+                    controles.circulo[i].style.fontSize = '22px';
+                    controles.speed[i].style.height = '80px';
+                    controles.speed[i].style.width = '70px';
+                    controles.speed[i].style.marginTop = '-110px';
+
+                }
+                if (los_videos[i].clientWidth >= 705) {
+                    controles.time_phone[i].style.marginTop = '-5%';
+                    controles.time_phone[i].style.fontSize = '22px';
+                    controles.container_controles[i].style.height = '35px';
+                    controles.btn_play[i].style.fontSize = '24px';
+                    controles.btn_play[i].style.width = '65%';
+                    controles.icons_end[i].style.fontSize = '24px';
+                    controles.icons_end[i].style.width = '20%';
+                    controles.icons_start[i].style.width = '10%';
+                    controles.circulo[i].style.fontSize = '23px';
+                    controles.speed[i].style.height = '100px';
+                    controles.speed[i].style.width = '65px';
+                    controles.speed[i].style.marginTop = '-140px';
+                }
+                if (los_videos[i].clientWidth >= 1000) {
+                    controles.time_phone[i].style.marginTop = '-3.7%';
+                    controles.time_phone[i].style.fontSize = '24px';
+                    controles.btn_play[i].style.fontSize = '26px';
+                    controles.icons_end[i].style.fontSize = '26px';
+                    controles.icons_between[i].style.width = '78%';
+                    controles.icons_end[i].style.width = '15%';
+                    controles.icons_start[i].style.width = '7%';
+                }
+
+
+            } //end if navigator
+            else {
+                if (los_videos[i].clientWidth < 380) {
+                    controles.time_phone[i].style.marginTop = '-20%';
+                    controles.icons_end[i].style.fontSize = '19px';
+                    controles.circulo[i].style.fontSize = '21px';
+                    controles.speed[i].style.height = '80px';
+                    controles.speed[i].style.width = '70px';
+                    controles.speed[i].style.marginTop = '-110px';
+                }
+
+                if (los_videos[i].clientWidth >= 380) {
+                    controles.time_phone[i].style.marginTop = '-15%';
+                    controles.time_phone[i].style.fontSize = '18px';
+                    controles.time_phone[i].style.marginLeft = '-5px';
+                    controles.btn_play[i].style.width = '100%';
+                    controles.circulo[i].style.fontSize = '22px';
+                    controles.speed[i].style.height = '80px';
+                    controles.speed[i].style.width = '70px';
+                    controles.speed[i].style.marginTop = '-110px';
+                }
+                if (los_videos[i].clientWidth >= 530) {
+                    controles.time_phone[i].style.marginTop = '-12%';
+                    controles.time_phone[i].style.fontSize = '20px';
+                    controles.container_controles[i].style.height = '30px';
+                    controles.time_phone[i].style.marginLeft = '-3px';
+                    controles.btn_play[i].style.fontSize = '20px';
+                    controles.btn_play[i].style.width = '70%';
+                    controles.icons_end[i].style.fontSize = '20px';
+                    controles.icons_end[i].style.width = '25%';
+                    controles.circulo[i].style.fontSize = '22px';
+                    controles.speed[i].style.height = '80px';
+                    controles.speed[i].style.width = '70px';
+                    controles.speed[i].style.marginTop = '-110px';
+
+                }
+                if (los_videos[i].clientWidth >= 705) {
+                    controles.time_phone[i].style.marginTop = '-10%';
+                    controles.time_phone[i].style.fontSize = '22px';
+                    controles.container_controles[i].style.height = '35px';
+                    controles.btn_play[i].style.fontSize = '24px';
+                    controles.btn_play[i].style.width = '65%';
+                    controles.icons_end[i].style.fontSize = '24px';
+                    controles.icons_end[i].style.width = '20%';
+                    controles.icons_start[i].style.width = '10%';
+                    controles.circulo[i].style.fontSize = '23px';
+                    controles.speed[i].style.height = '100px';
+                    controles.speed[i].style.width = '65px';
+                    controles.speed[i].style.marginTop = '-140px';
+                }
+                if (los_videos[i].clientWidth >= 1000) {
+                    controles.time_phone[i].style.marginTop = '-7.5%';
+                    controles.time_phone[i].style.fontSize = '24px';
+                    controles.btn_play[i].style.fontSize = '26px';
+                    controles.icons_end[i].style.fontSize = '26px';
+                    controles.icons_between[i].style.width = '78%';
+                    controles.icons_end[i].style.width = '15%';
+                    controles.icons_start[i].style.width = '7%';
+                }
+            } //end else
+
+        } //end for
     }
 
     Change_graphics(personal_colors) {
@@ -136,12 +225,23 @@ class Videos extends Reproductor {
             </div>
             <div class="icons-between">
                 <div class="timeline-vacio">
-                    <div class="timeline-lleno"></div>
+                    <div class="timeline-lleno"><i class="fas fa-circle circulo"></i></div>
                 </div>
             </div>
             <div class="icons-end">
-                <div class="volumen"><i class="fas fa-volume-up"></i></div>
-                <div class="herramientas"><i class="fas fa-cog"></i></div>
+                <div class="volumen"><i class="fas fa-volume-up"></i>
+                <div class="container-input-vol none"><input class="input-vol" type="range" min="0" max="1" step="0.1"></div>
+                </div>
+                <div class="herramientas"><i class="fas fa-cog"></i>
+                <div class="speed none">
+                <div class="btn-speed">2</div>
+                <div class="btn-speed">1.75</div>
+                <div class="btn-speed">1.5</div>
+                <div class="btn-speed">1</div>
+                <div class="btn-speed">0.75</div>
+                <div class="btn-speed">0.5</div>
+                </div>
+                </div>
                 <div class="expand"><i class="fas fa-expand"></i></div>
             </div>
         </div>

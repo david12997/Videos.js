@@ -1,101 +1,253 @@
 /*estilos globales*/
+
 body {
-  margin: 0;
+    margin: 0;
 }
 
 .none {
-  display: none;
+    display: none;
 }
 
 :root {
-  --tamano:100%;
+    --tamano: 100%;
 }
 
+
 /*estilos especificos phone*/
+
 .reproductor {
-  width: var(--tamano);
-  background: blue;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
+    width: var(--tamano);
+    background: blue;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
 }
+
 .reproductor video {
-  width: 100%;
+    width: 100%;
 }
+
 .reproductor .container-controles {
-  width: 100%;
-  height: 30px;
-  background: #000000B3;
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  align-items: center;
-  padding: 2px;
+    width: 100%;
+    height: 30px;
+    background: #000000B3;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    padding: 2px;
 }
+
 .reproductor .container-controles .icons-start {
-  margin-left: 5px;
-  margin-right: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 10%;
-  height: 70%;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+    height: 70%;
 }
+
 .reproductor .container-controles .icons-start .play {
-  background: white;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  padding: 3px;
-  padding-left: 4px;
-  z-index: 9;
+    background: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 4px;
+    z-index: 9;
 }
+
 .reproductor .container-controles .icons-start .time-phone {
-  position: absolute;
-  background: #000000B3;
-  margin-top: -10%;
-  border-radius: 3px;
-  color: white;
-  font-size: 18px;
-  padding: 3px;
-  margin-left: -5px;
+    position: absolute;
+    background: #000000B3;
+    margin-top: -10%;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    padding: 3px;
+    margin-left: -5px;
 }
+
 .reproductor .container-controles .icons-between {
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 70%;
-  height: 70%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 70%;
+    height: 70%;
 }
+
 .reproductor .container-controles .icons-between .timeline-vacio {
-  background: white;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  padding: 1px;
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 1px;
 }
+
 .reproductor .container-controles .icons-between .timeline-vacio .timeline-lleno {
-  background: black;
-  width: 50%;
-  height: 100%;
-  border-radius: 20px;
+    background: black;
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
 }
+
+.reproductor .container-controles .icons-between .timeline-vacio .timeline-lleno .circulo {
+    position: absolute;
+    color: rgb(63, 61, 61);
+    height: 95%;
+    font-size: 21px;
+    border-radius: 50%;
+    border: 1px rgb(255, 255, 255) solid;
+}
+
 .reproductor .container-controles .icons-end {
-  justify-content: space-around;
-  color: white;
-  display: flex;
-  margin-right: 5px;
-  align-items: center;
-  font-size: 19px;
-  width: 25%;
-  height: 70%;
+    justify-content: space-around;
+    color: white;
+    display: flex;
+    margin-right: 5px;
+    align-items: center;
+    font-size: 19px;
+    width: 25%;
+    height: 70%;
 }
+
+.reproductor .container-controles .icons-end .volumen {
+    position: relative;
+}
+
+.reproductor .container-controles .icons-end .volumen .container-input-vol {
+    position: absolute;
+    z-index: 99;
+    margin-top: -80px;
+    background: red;
+    width: 0px;
+    margin-left: -180%;
+}
+
+.reproductor .container-controles .icons-end .herramientas {
+    position: relative;
+}
+
+.reproductor .container-controles .icons-end .herramientas .speed {
+    position: absolute;
+    z-index: 99;
+    width: 70px;
+    height: 80px;
+    background: rgb(65, 64, 64);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: -110px;
+    margin-left: -35px;
+    padding: 2px;
+}
+
+.reproductor .container-controles .icons-end .herramientas .speed .btn-speed {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 98%;
+    background: black;
+    border-radius: 2px;
+    margin: 2px;
+}
+
 .reproductor .container-controles .icons-end div {
-  margin-left: 5px;
+    margin-left: 5px;
 }
+
+
+/*estilos para firefox*/
+
+@-moz-document url-prefix() {}
+
+.reproductor .container-controles .icons-start .time-phone {
+    margin-top: -20%;
+}
+
+
+/*estilos input*/
+
+input[type='range'] {
+    display: block;
+    width: 100px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+
+input[type='range']:focus {
+    outline: none;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    /*chrome*/
+    background-color: rgb(0, 0, 0);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgb(94, 92, 92);
+    border-radius: 50%;
+    margin-top: -9px;
+}
+
+input[type=range]::-moz-range-thumb {
+    /*firefox*/
+    background-color: rgb(0, 0, 0);
+    width: 15px;
+    height: 15px;
+    border: 3px solid rgb(95, 91, 91);
+    border-radius: 50%;
+}
+
+input[type=range]::-ms-thumb {
+    background-color: #777;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #333;
+    border-radius: 50%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    /*chrome*/
+    background-color: rgb(0, 0, 0);
+    height: 7px;
+    border: 2px solid rgb(71, 69, 69);
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    outline: none;
+}
+
+input[type=range]::-moz-range-track {
+    background-color: rgb(0, 0, 0);
+    height: 98%;
+    border: 1px solid grey;
+}
+
+input[type=range]::-ms-track {
+    background-color: #777;
+    height: 3px;
+}
+
+input[type=range]::-ms-fill-lower {
+    background-color: HotPink
+}
+
+input[type=range]::-ms-fill-upper {
+    background-color: black;
+}
+
 
 /*# sourceMappingURL=videos.css.map */
