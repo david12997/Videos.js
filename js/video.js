@@ -1,4 +1,7 @@
 'use strict'
+//variables superglobales
+let videos_lista = []; //here save videos of playlist case 'list'
+
 //_______________ filter module
 class Receptor {
     constructor(data_video) {
@@ -276,6 +279,11 @@ class Facotory_rep { // this class build specific video controls
                 const rep_instance = new Videos();
                 rep_instance.Paint(this.videos_src, this.container);
 
+
+                break;
+            case 'listas':
+                console.log(this.videos_src.split(",")) //split create array with src of videos  
+                console.log(this.container)
 
                 break;
 
