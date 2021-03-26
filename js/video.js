@@ -38,9 +38,11 @@ class Reproductor { //abstract class
             icons_end = document.getElementsByClassName('icons-end'),
             icons_between = document.getElementsByClassName('icons-between'),
             icons_start = document.getElementsByClassName('icons-start'),
-            circulo = document.getElementsByClassName('circulo', ),
+            circulo = document.getElementsByClassName('circulo',),
             speed = document.getElementsByClassName('speed'),
             btn_speed = document.getElementsByClassName('btn-speed'),
+            icon_pause = document.getElementsByClassName('icon-pause'),
+            icon_play = document.getElementsByClassName('icon-play'),
 
             Controles = {
                 'etiqueta_video': etiqueta_video,
@@ -52,17 +54,28 @@ class Reproductor { //abstract class
                 'icons_start': icons_start,
                 'circulo': circulo,
                 'speed': speed,
-                'btn_speed': btn_speed
+                'btn_speed': btn_speed,
+                'icon_play': icon_play,
+                'icon_pause': icon_pause
             };
         return Controles;
     }
 
-    Play_pause(video) {
+    Play_pause(video,iconPlay,iconPause) {
         //console.log(video)
         if (video.paused) {
+           
             video.play();
+
+            iconPlay.classList.add('none');
+            iconPause.classList.remove('none');
+
         } else if (video.played) {
+           
             video.pause();
+
+            iconPlay.classList.remove('none');
+            iconPause.classList.add('none');
         }
     }
 
@@ -210,7 +223,7 @@ class Reproductor { //abstract class
     }
 
     Build_rep(videos_src, container_video) { // this method instance   factory  controllers 
-        
+
         for (let i = 0; i < videos_src.length; i++) {
             const abstract_rep = new Facotory_rep(videos_src[i].dataset.tipo, videos_src[i].dataset.src, container_video)
             abstract_rep.Instance_rep();
@@ -229,7 +242,7 @@ class Videos extends Reproductor {
         <div class="reproductor">
         <div class="container-controles">
             <div class="icons-start">
-                <div class="play "><i class="fas fa-play"></i></div>
+                <div class="play "><span class="icon-play"><i class="fas fa-play"></i></span><span class="icon-pause none"><i class="fas fa-pause"></i></span></div>
                 <div class="time-phone">00:00</div>
             </div>
             <div class="icons-between">
@@ -310,16 +323,24 @@ const Mi_reproductor = new Receptor(data_video);
 Mi_reproductor.Message();
 
 
+
+
+
 //___________________here  call functions of video controls
-const controllers = new Reproductor()
+const controllers = new Reproductor();
+
 let html_label = controllers.Control_Grafics(); // saving  array from method Control_Grafics
 
 for (let i = 0; i < html_label.etiqueta_video.length; i++) { // here it iterates according numbers of video
     html_label.btn_play[i].addEventListener('click', () => {
 
-        controllers.Play_pause(html_label.etiqueta_video[i]);
+        controllers.Play_pause(html_label.etiqueta_video[i],html_label.icon_play[i],html_label.icon_pause[i]);
     });
 }
+
+
+
+
 
 
 //________________ here I'm  resizing  video control
