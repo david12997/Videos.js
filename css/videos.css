@@ -94,26 +94,12 @@ body {
   .timeline-vacio
   .timeline-lleno {
   background: black;
-  width: 50%;
+  width: 0%;
   height: 100%;
   border-radius: 20px;
   position: relative;
   display: flex;
   justify-content: flex-end;
-}
-
-.reproductor
-  .container-controles
-  .icons-between
-  .timeline-vacio
-  .timeline-lleno
-  .circulo {
-  position: absolute;
-  color: rgb(63, 61, 61);
-  height: 95%;
-  font-size: 21px;
-  border-radius: 50%;
-  border: 1px rgb(255, 255, 255) solid;
 }
 
 .reproductor .container-controles .icons-end {

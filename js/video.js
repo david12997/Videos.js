@@ -38,11 +38,11 @@ class Reproductor { //abstract class
             icons_end = document.getElementsByClassName('icons-end'),
             icons_between = document.getElementsByClassName('icons-between'),
             icons_start = document.getElementsByClassName('icons-start'),
-            circulo = document.getElementsByClassName('circulo',),
             speed = document.getElementsByClassName('speed'),
             btn_speed = document.getElementsByClassName('btn-speed'),
             icon_pause = document.getElementsByClassName('icon-pause'),
             icon_play = document.getElementsByClassName('icon-play'),
+            timeLine = document.getElementsByClassName('timeline-lleno'),
 
             Controles = {
                 'etiqueta_video': etiqueta_video,
@@ -52,13 +52,44 @@ class Reproductor { //abstract class
                 'icons_end': icons_end,
                 'icons_between': icons_between,
                 'icons_start': icons_start,
-                'circulo': circulo,
                 'speed': speed,
                 'btn_speed': btn_speed,
                 'icon_play': icon_play,
-                'icon_pause': icon_pause
+                'icon_pause': icon_pause,
+                'timeline': timeLine
             };
         return Controles;
+    }
+
+    ProgressBar(video,timeline,iconPlay,iconPause) {
+        
+        let current = video.currentTime;
+        let duration = video.duration;
+        let avance = parseInt(current.toFixed()) * 100 / parseInt(duration.toFixed());
+
+       // console.log(current);
+        //console.log(duration);
+
+       //console.log(parseInt(current.toFixed()) * 100 / parseInt(duration.toFixed()));
+        
+        
+        
+        if (avance === 100) {
+
+           
+            video.pause();
+            iconPlay.classList.remove('none');
+            iconPause.classList.add('none');
+
+            timeline.style.width = '0%';
+            video.currentTime = 0;
+
+        } else {
+              timeline.style.width = avance + '%';
+        }
+      
+
+
     }
 
     Play_pause(video,iconPlay,iconPause) {
@@ -85,30 +116,30 @@ class Reproductor { //abstract class
 
         for (let i = 0; i < los_videos.length; i++) {
 
+            
+
             if (navigator.productSub == '20030107') {
-
-
 
                 if (los_videos[i].clientWidth < 380) {
                     controles.time_phone[i].style.marginTop = '-20%';
                     controles.icons_end[i].style.fontSize = '19px';
-                    controles.circulo[i].style.fontSize = '21px';
                     controles.speed[i].style.height = '80px';
                     controles.speed[i].style.width = '70px';
                     controles.speed[i].style.marginTop = '-110px';
                 }
 
                 if (los_videos[i].clientWidth >= 380) {
+
                     controles.time_phone[i].style.marginTop = '-15%';
                     controles.time_phone[i].style.fontSize = '18px';
                     controles.time_phone[i].style.marginLeft = '-5px';
                     controles.btn_play[i].style.width = '100%';
-                    controles.circulo[i].style.fontSize = '22px';
                     controles.speed[i].style.height = '80px';
                     controles.speed[i].style.width = '70px';
                     controles.speed[i].style.marginTop = '-110px';
                 }
                 if (los_videos[i].clientWidth >= 530) {
+
                     controles.time_phone[i].style.marginTop = '-12%';
                     controles.time_phone[i].style.fontSize = '20px';
                     controles.container_controles[i].style.height = '30px';
@@ -117,13 +148,13 @@ class Reproductor { //abstract class
                     controles.btn_play[i].style.width = '70%';
                     controles.icons_end[i].style.fontSize = '20px';
                     controles.icons_end[i].style.width = '25%';
-                    controles.circulo[i].style.fontSize = '22px';
                     controles.speed[i].style.height = '80px';
                     controles.speed[i].style.width = '70px';
                     controles.speed[i].style.marginTop = '-110px';
 
                 }
                 if (los_videos[i].clientWidth >= 705) {
+
                     controles.time_phone[i].style.marginTop = '-10%';
                     controles.time_phone[i].style.fontSize = '22px';
                     controles.container_controles[i].style.height = '35px';
@@ -132,12 +163,12 @@ class Reproductor { //abstract class
                     controles.icons_end[i].style.fontSize = '24px';
                     controles.icons_end[i].style.width = '20%';
                     controles.icons_start[i].style.width = '10%';
-                    controles.circulo[i].style.fontSize = '23px';
                     controles.speed[i].style.height = '100px';
                     controles.speed[i].style.width = '65px';
                     controles.speed[i].style.marginTop = '-140px';
                 }
                 if (los_videos[i].clientWidth >= 1000) {
+
                     controles.time_phone[i].style.marginTop = '-8%';
                     controles.time_phone[i].style.fontSize = '24px';
                     controles.btn_play[i].style.fontSize = '26px';
@@ -151,23 +182,25 @@ class Reproductor { //abstract class
             } //end if navigator
             else {
                 if (los_videos[i].clientWidth < 380) {
+
                     controles.time_phone[i].style.marginTop = '-20%';
                     controles.icons_end[i].style.fontSize = '19px';
-                    controles.circulo[i].style.fontSize = '21px';
                     controles.speed[i].style.height = '80px';
                     controles.speed[i].style.width = '70px';
                     controles.speed[i].style.marginTop = '-110px';
+
                 }
 
                 if (los_videos[i].clientWidth >= 380) {
+
                     controles.time_phone[i].style.marginTop = '-15%';
                     controles.time_phone[i].style.fontSize = '18px';
                     controles.time_phone[i].style.marginLeft = '-5px';
                     controles.btn_play[i].style.width = '100%';
-                    controles.circulo[i].style.fontSize = '22px';
                     controles.speed[i].style.height = '80px';
                     controles.speed[i].style.width = '70px';
                     controles.speed[i].style.marginTop = '-110px';
+
                 }
                 if (los_videos[i].clientWidth >= 530) {
                     controles.time_phone[i].style.marginTop = '-12%';
@@ -178,7 +211,6 @@ class Reproductor { //abstract class
                     controles.btn_play[i].style.width = '70%';
                     controles.icons_end[i].style.fontSize = '20px';
                     controles.icons_end[i].style.width = '25%';
-                    controles.circulo[i].style.fontSize = '22px';
                     controles.speed[i].style.height = '80px';
                     controles.speed[i].style.width = '70px';
                     controles.speed[i].style.marginTop = '-110px';
@@ -193,7 +225,6 @@ class Reproductor { //abstract class
                     controles.icons_end[i].style.fontSize = '24px';
                     controles.icons_end[i].style.width = '20%';
                     controles.icons_start[i].style.width = '10%';
-                    controles.circulo[i].style.fontSize = '23px';
                     controles.speed[i].style.height = '100px';
                     controles.speed[i].style.width = '65px';
                     controles.speed[i].style.marginTop = '-140px';
@@ -218,7 +249,7 @@ class Reproductor { //abstract class
             console.log('cambiando colores', personal_colors)
                 // instance method's Cambiar_interfaz
         } else {
-            console.log('nothing')
+            console.log('nothing');
         }
     }
 
@@ -247,7 +278,7 @@ class Videos extends Reproductor {
             </div>
             <div class="icons-between">
                 <div class="timeline-vacio">
-                    <div class="timeline-lleno"><i class="fas fa-circle circulo"></i></div>
+                    <div class="timeline-lleno"></div>
                 </div>
             </div>
             <div class="icons-end">
@@ -332,10 +363,19 @@ const controllers = new Reproductor();
 let html_label = controllers.Control_Grafics(); // saving  array from method Control_Grafics
 
 for (let i = 0; i < html_label.etiqueta_video.length; i++) { // here it iterates according numbers of video
+
+    //click btn play/pause
     html_label.btn_play[i].addEventListener('click', () => {
 
-        controllers.Play_pause(html_label.etiqueta_video[i],html_label.icon_play[i],html_label.icon_pause[i]);
+        controllers.Play_pause(html_label.etiqueta_video[i], html_label.icon_play[i], html_label.icon_pause[i]);
+        
     });
+
+    html_label.etiqueta_video[i].addEventListener('timeupdate', () => {
+        
+        controllers.ProgressBar(html_label.etiqueta_video[i], html_label.timeline[i], html_label.icon_play[i],html_label.icon_pause[i]);
+    })
+
 }
 
 
@@ -346,6 +386,8 @@ for (let i = 0; i < html_label.etiqueta_video.length; i++) { // here it iterates
 //________________ here I'm  resizing  video control
 window.addEventListener('resize', () => {
     controllers.Size(html_label.etiqueta_video, html_label);
+
+
 });
 window.addEventListener('load', () => {
     controllers.Size(html_label.etiqueta_video, html_label);
