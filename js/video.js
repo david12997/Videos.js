@@ -10,7 +10,9 @@ class Receptor {
 
     }
     Message() { // this method selection the videos and its container
+        
         for (let i = 0; i < this.data_video.length; i++) {
+
             let videos_src = this.data_video[i].children;
             let container_video = this.data_video[i].dataset.container;
             let personal_colors = this.data_video[i].dataset.controls.split(",");
@@ -72,8 +74,10 @@ class Reproductor { //abstract class
 
             if (navigator.productSub == '20030107') {
 
+
+
                 if (los_videos[i].clientWidth < 380) {
-                    controles.time_phone[i].style.marginTop = '-10%';
+                    controles.time_phone[i].style.marginTop = '-20%';
                     controles.icons_end[i].style.fontSize = '19px';
                     controles.circulo[i].style.fontSize = '21px';
                     controles.speed[i].style.height = '80px';
@@ -82,7 +86,7 @@ class Reproductor { //abstract class
                 }
 
                 if (los_videos[i].clientWidth >= 380) {
-                    controles.time_phone[i].style.marginTop = '-8%';
+                    controles.time_phone[i].style.marginTop = '-15%';
                     controles.time_phone[i].style.fontSize = '18px';
                     controles.time_phone[i].style.marginLeft = '-5px';
                     controles.btn_play[i].style.width = '100%';
@@ -92,10 +96,10 @@ class Reproductor { //abstract class
                     controles.speed[i].style.marginTop = '-110px';
                 }
                 if (los_videos[i].clientWidth >= 530) {
-                    controles.time_phone[i].style.marginTop = '-6%';
+                    controles.time_phone[i].style.marginTop = '-12%';
                     controles.time_phone[i].style.fontSize = '20px';
                     controles.container_controles[i].style.height = '30px';
-                    controles.time_phone[i].style.marginLeft = '-3px';
+                    controles.time_phone[i].style.marginLeft = '1px';
                     controles.btn_play[i].style.fontSize = '20px';
                     controles.btn_play[i].style.width = '70%';
                     controles.icons_end[i].style.fontSize = '20px';
@@ -107,7 +111,7 @@ class Reproductor { //abstract class
 
                 }
                 if (los_videos[i].clientWidth >= 705) {
-                    controles.time_phone[i].style.marginTop = '-5%';
+                    controles.time_phone[i].style.marginTop = '-10%';
                     controles.time_phone[i].style.fontSize = '22px';
                     controles.container_controles[i].style.height = '35px';
                     controles.btn_play[i].style.fontSize = '24px';
@@ -121,7 +125,7 @@ class Reproductor { //abstract class
                     controles.speed[i].style.marginTop = '-140px';
                 }
                 if (los_videos[i].clientWidth >= 1000) {
-                    controles.time_phone[i].style.marginTop = '-3.7%';
+                    controles.time_phone[i].style.marginTop = '-8%';
                     controles.time_phone[i].style.fontSize = '24px';
                     controles.btn_play[i].style.fontSize = '26px';
                     controles.icons_end[i].style.fontSize = '26px';
@@ -196,6 +200,7 @@ class Reproductor { //abstract class
     }
 
     Change_graphics(personal_colors) {
+
         if (personal_colors[0] !== 'defined') {
             console.log('cambiando colores', personal_colors)
                 // instance method's Cambiar_interfaz
@@ -205,6 +210,7 @@ class Reproductor { //abstract class
     }
 
     Build_rep(videos_src, container_video) { // this method instance   factory  controllers 
+        
         for (let i = 0; i < videos_src.length; i++) {
             const abstract_rep = new Facotory_rep(videos_src[i].dataset.tipo, videos_src[i].dataset.src, container_video)
             abstract_rep.Instance_rep();
